@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         btIniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intentGaleria = new Intent(MainActivity.this, GaleriaActivity.class);
-                //startActivity(intentGaleria);
-                connectServer();
+                Intent intentGaleria = new Intent(MainActivity.this, GaleriaActivity.class);
+                startActivity(intentGaleria);
+                //connectServer();
             }
         });
     }
