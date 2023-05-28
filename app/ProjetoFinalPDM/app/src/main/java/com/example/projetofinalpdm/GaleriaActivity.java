@@ -138,6 +138,7 @@ public class GaleriaActivity extends AppCompatActivity {
                 bmNormal = (BitmapDrawable) imageView.getDrawable();
 
                 imgPath = getPath(getApplicationContext(), imageUri);
+                textViewImgProcessada.setText("");
             }
     }
 
