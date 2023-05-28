@@ -24,6 +24,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,6 +36,8 @@ import java.util.Objects;
 public class GaleriaActivity extends AppCompatActivity {
 
     private ImageView imageView;
+
+    private TextView textViewImgProcessada;
     private FloatingActionButton btSalvar, btCarregar;
     private Button btOtimizar;
     private static final int PEGAR_IMAGEM = 100;
@@ -56,6 +59,8 @@ public class GaleriaActivity extends AppCompatActivity {
 
         ActivityCompat.requestPermissions(GaleriaActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         ActivityCompat.requestPermissions(GaleriaActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 2);
+
+        textViewImgProcessada = findViewById(R.id.textViewImgProcessada);
 
         imageView = findViewById(R.id.imageView3);
         bmNormal = (BitmapDrawable) imageView.getDrawable();
@@ -119,7 +124,7 @@ public class GaleriaActivity extends AppCompatActivity {
                 BackendService backendService = new BackendService();
                 Bitmap imagemProcessada = backendService.doPostImage(imgPath);
                 imageView.setImageBitmap(imagemProcessada);
-
+                textViewImgProcessada.setText("Imagem processada com sucesso.");
             }
         });
     }
