@@ -2,16 +2,11 @@ package com.example.projetofinalpdm;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
-import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -26,7 +21,6 @@ public class BackendService {
     public Bitmap doPostImage(String imagePath) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         BitmapFactory.Options options = new BitmapFactory.Options();
-        //options.inPreferredConfig = Bitmap.Config.RGB_565;
 
         Bitmap bitmap = BitmapFactory.decodeFile(imagePath, options);
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
@@ -63,22 +57,5 @@ public class BackendService {
             return null;
         }
 
-
-//        client.newCall(request).enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                call.cancel();
-//                Log.i("Erro na comunicação com o Serviço", e.getMessage());
-//                e.printStackTrace();
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                InputStream inputStream = response.body().byteStream();
-//                Bitmap imagemProcessada = BitmapFactory.decodeStream(inputStream);
-//                Log.i("IMG:", "Chegou aqui");
-//            }
-//        });
     }
-
 }
